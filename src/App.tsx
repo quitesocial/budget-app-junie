@@ -1,53 +1,35 @@
 import { RouteObject } from 'react-router-dom'
-import { Box, Container, CssBaseline, ThemeProvider } from '@mui/material'
-import theme from './theme'
-import { ReactNode } from 'react'
 
 // Import pages
-// We'll create these later, for now we'll use placeholder components
-const Home = () => <Box sx={{ p: 3 }}>Home Page</Box>
-const About = () => <Box sx={{ p: 3 }}>About Page</Box>
-const NotFound = () => <Box sx={{ p: 3 }}>404 - Page Not Found</Box>
+import Home from './pages/Home'
+import About from './pages/About'
+import NotFound from './pages/NotFound'
+import Layout from './components/Layout'
 
 // Export routes for use with createBrowserRouter
 export const routes: RouteObject[] = [
   {
     path: "/",
     element: (
-      <App>
+      <Layout>
         <Home />
-      </App>
+      </Layout>
     )
   },
   {
     path: "/about",
     element: (
-      <App>
+      <Layout>
         <About />
-      </App>
+      </Layout>
     )
   },
   {
     path: "*",
     element: (
-      <App>
+      <Layout>
         <NotFound />
-      </App>
+      </Layout>
     )
   }
 ];
-
-// App component that wraps the content with theme and layout
-function App({ children }: { children?: ReactNode }) {
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Container maxWidth="lg">
-        <Box sx={{ my: 4 }}>
-          {children}
-        </Box>
-      </Container>
-    </ThemeProvider>
-  )
-}
-
