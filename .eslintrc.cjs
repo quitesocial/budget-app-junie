@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   root: true,
   env: {
     browser: true,
@@ -12,7 +12,7 @@ export default {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
   ],
-  ignorePatterns: ['dist', '.eslintrc.mjs'],
+  ignorePatterns: ['dist', '.eslintrc.mjs', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
