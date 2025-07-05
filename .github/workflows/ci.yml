@@ -7,13 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js 18
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: Use Node.js 20
         uses: actions/setup-node@v3
         with:
           node-version: '20'
           cache: 'pnpm'
       - name: Install dependencies
-        run: pnpm ci
+        run: pnpm install
       - name: Lint (ESLint + Prettier)
         run: pnpm run lint
       - name: Build
